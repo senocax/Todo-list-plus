@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Todo from "./components/Todo";
+import Form from "./components/Form";
 import "./styles.css";
 
 export default function App() {
   const [todos, setTodos] = useState([
     { text: "New message" },
     { text: "Hello world" },
-    { text: "new sound" }
+    { text: "New sound" }
   ]);
 
   return (
@@ -15,6 +16,7 @@ export default function App() {
         {todos.map((todo, index) => (
           <Todo key={index} index={index} todo={todo} />
         ))}
+        <Form />
       </div>
     </div>
   );
