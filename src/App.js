@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import Todo from "./components/Todo";
-import Form from "./components/Form";
+import TodoForm from "./components/todoForm";
 import "./styles.css";
 
 export default function App() {
   const [todos, setTodos] = useState([
     { text: "New message" },
     { text: "Hello world" },
-    { text: "New sound" }
+    { text: "new sound" }
   ]);
+
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
 
   return (
     <div className="app">
@@ -16,7 +21,7 @@ export default function App() {
         {todos.map((todo, index) => (
           <Todo key={index} index={index} todo={todo} />
         ))}
-        <Form />
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
